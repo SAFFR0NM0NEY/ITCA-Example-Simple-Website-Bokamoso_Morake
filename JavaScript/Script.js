@@ -1,9 +1,9 @@
-fetch("data/products.xml")
+fetch("data/products.json")
    .then(response => response.text())
    .then(data => {
       const parser = new DOMParser();
-      const xml = parser.parseFromString(data, "application/xml");
-      const products = xml.getElementsByTagName("product");
+      const json = parser.parseFromString(data, "application/json");
+      const products = json.getElementsByTagName("product");
       let output = "";
       for (let product of products) {
         const name = product.getElementsByTagName("name")[0].textContent;
